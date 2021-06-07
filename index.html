@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="./libs/custom-ui/custom-ui.css" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="menu.css" />
+
+    <script src="./libs/hammer.min.js"></script>
+</head>
+
+<body>
+
+    <div id="loader">
+        <div id="loading-msg">
+            <h3>Vernier Caliper</h3>
+        </div>
+    </div>
+    <script src="./libs/custom-ui/custom-ui.js"></script>
+
+    <div id="root">
+
+        <div tabindex="0" id="view-3d">
+
+        </div>
+
+        <div id="left-toolbar">
+            <button id="btn-things-menu" class="btn-view">
+                <img src="./images/shapes.png" />
+                <span>
+                    Things
+                </span>
+            </button>
+        </div>
+
+        <div id="top-toolbar">
+            <div id="dimension-label">
+
+                <svg width="30" height="30" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 45" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <g transform="translate(1.000000, 1.000000)" stroke="#ffffff" stroke-width="2.2">
+                            <polygon points="0 34 58 34 58 22 0 22" />
+                            <path d="M0,17 L0,0" />
+                            <path d="M58,17 L58,0" />
+                            <path d="M56,9 L51,3" />
+                            <path d="M51,15 L56,9" />
+                            <path d="M51,3 L51,15" />
+                            <path d="M51,9 L7,9" />
+                            <path d="M7,2.9988 L7,14.9998" />
+                            <path d="M7,3 L2,9" />
+                            <path d="M7,15 L2,9" />
+                            <path d="M53.0016,22 L53.0006,25" />
+                            <path d="M47.0002,22 L47.0002,27" />
+                            <path d="M41.0002,25 L41.0002,22" />
+                            <path d="M35,22 L35,27" />
+                            <path d="M29,22 L29,25" />
+                            <path d="M23,22 L23,27" />
+                            <path d="M17.0002,22 L17.0002,25" />
+                            <path d="M11.0001,22 L11.0001,27" />
+                            <path d="M5.0001,22 L4.9991,25" />
+                        </g>
+                    </g>
+                </svg>
+
+                <span id="dimension-value">
+                    31.200
+                </span>
+                <span>
+                    <select id="unit-dropdown">
+                        <option value="mm">mm</option>
+                        <option value="in">in</option>
+                    </select>
+                </span>
+            </div>
+            <div style="display: flex; align-items: center;">
+
+                <span id="touch-indicator">
+
+                </span>
+
+                <button id="btn-hint" class="btn-view">
+
+                    <svg width="20" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 432.4 432.4"
+                        style="enable-background:new 0 0 432.4 432.4;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <g>
+                                    <path style="fill:#eee;" d="M216.529,93.2c-61.2,0-111.2,50-111.2,111.2c0,32,14,62.8,37.6,83.6c17.6,17.6,16,55.2,15.6,55.6
+				c0,2,0.4,3.6,2,5.2c1.2,1.2,3.2,2,4.8,2h102c2,0,3.6-0.8,4.8-2c1.2-1.2,2-3.2,2-5.2c0-0.4-2-38,15.6-55.6
+				c0.4-0.4,0.8-0.8,1.2-1.2c23.2-21.2,36.8-51.2,36.8-82.4C327.729,143.2,277.729,93.2,216.529,93.2z M280.529,277.6
+				c-0.4,0.4-1.2,1.2-1.2,1.6c-15.6,16.8-18.4,44.4-18.8,57.6h-88.4c-0.4-13.2-3.2-42-20-59.2c-21.2-18.4-33.6-45.2-33.6-73.6
+				c0-54,43.6-97.6,97.6-97.6s97.6,43.6,97.6,97.6C313.729,232.4,301.729,259.2,280.529,277.6z" />
+                                    <path style="fill:#eee;" d="M216.129,121.6c-3.6,0-6.8,3.2-6.8,6.8c0,3.6,3.2,6.8,6.8,6.8c40.4,0,72.8,32.8,72.8,72.8
+				c0,3.6,3.2,6.8,6.8,6.8c3.6,0,6.8-3.2,6.8-6.8C302.929,160.4,264.129,121.6,216.129,121.6z" />
+                                    <path style="fill:#eee;" d="M260.529,358.4h-88.8c-9.2,0-16.8,7.6-16.8,16.8s7.6,16.8,16.8,16.8h88.4
+				c9.6-0.4,17.2-7.6,17.2-16.8C277.329,366,269.729,358.4,260.529,358.4z M260.529,378h-88.8c-1.6,0-3.2-1.2-3.2-3.2
+				s1.2-3.2,3.2-3.2h88.4c1.6,0,3.2,1.2,3.2,3.2S262.129,378,260.529,378z" />
+                                    <path style="fill:#eee;" d="M247.329,398.8h-62.4c-9.2,0-16.8,7.6-16.8,16.8s7.6,16.8,16.8,16.8h62.4
+				c9.2,0,16.8-7.6,16.8-16.8C264.129,406,256.529,398.8,247.329,398.8z M247.329,418.4h-62.4c-1.6,0-3.2-1.2-3.2-3.2
+				s1.2-3.2,3.2-3.2h62.4c1.6,0,3.2,1.2,3.2,3.2S248.929,418.4,247.329,418.4z" />
+                                    <path style="fill:#eee;" d="M216.129,60c4,0,6.8-3.2,6.8-6.8V6.8c0-3.6-3.2-6.8-6.8-6.8c-3.6,0-6.8,3.2-6.8,6.8v46.4
+				C209.329,56.8,212.529,60,216.129,60z" />
+                                    <path style="fill:#eee;" d="M329.329,34.4c-3.2-2.4-7.2-1.2-9.2,1.6l-25.6,38.4c-2.4,3.2-1.6,7.6,1.6,9.6
+				c1.2,0.8,2.4,1.2,3.6,1.2c2.4,0,4.4-1.2,5.6-3.2l25.6-38.4C333.329,40.8,332.529,36.4,329.329,34.4z" />
+                                    <path style="fill:#eee;" d="M134.929,83.6c1.2,0,2.4-0.4,3.6-1.2c3.2-2,4-6.4,2-9.6l-24.8-38.8c-2-3.2-6.4-4-9.6-2
+				s-4,6.4-2,9.6l24.8,38.8C130.529,82.8,132.529,83.6,134.929,83.6z" />
+                                    <path style="fill:#eee;" d="M86.529,126l-40.4-22c-3.2-1.6-7.6-0.4-9.2,2.8c-2,3.2-0.8,7.6,2.8,9.2l40.4,22
+				c1.2,0.4,2,0.8,3.2,0.8c2.4,0,4.8-1.2,6-3.6C90.929,132,89.729,127.6,86.529,126z" />
+                                    <path style="fill:#eee;" d="M395.729,106.8c-1.6-3.2-6-4.4-9.2-2.8l-40.8,22c-3.2,1.6-4.4,6-2.8,9.2c1.2,2.4,3.6,3.6,6,3.6
+				c1.2,0,2.4-0.4,3.2-0.8l40.8-22C396.129,114.4,397.329,110,395.729,106.8z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+
+            </div>
+
+
+        </div>
+
+        <div id="things-menu">
+            <div class="things-menu-row">
+                <div class="things-menu-btn" data-name="cube">
+                    <img src="./images/box.png" />
+                </div>
+                <div class="things-menu-btn" data-name="cylinder">
+                    <img src="./images/nut.png" />
+                </div>
+            </div>
+            <div class="things-menu-row">
+                <div  class="things-menu-btn" data-name="pipe">
+                    <img src="./images/pipe.png" />
+                </div>
+               
+            </div>
+           
+        </div>
+
+        <div id="right-toolbar">
+            <button id="btn-3d-view" class="btn-view">
+                <img src="./images/perspective-view-1.png" />
+                <span>
+                    3D View
+                </span>
+            </button>
+
+            <button id="btn-2d-view" class="btn-view">
+                <img src="./images/font-view-1.jpg" />
+                <span>
+                    2D View
+                </span>
+            </button>
+            <button id="btn-lock" class="btn-view">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 512 512" width="22" height="22" fill="#eee" style="enable-background:new 0 0 512 512;"
+                    xml:space="preserve">
+                    <path
+                        d="M368,0c-61.758,0-112,50.242-112,112v112H64c-17.672,0-32,14.328-32,32v224c0,17.672,14.328,32,32,32h288 c17.672,0,32-14.328,32-32V256c0-17.672-14.328-32-32-32h-32V112c0-26.469,21.531-48,48-48c26.469,0,48,21.531,48,48v80 c0,17.672,14.328,32,32,32c17.672,0,32-14.328,32-32v-80C480,50.242,429.758,0,368,0z M224,397.063V432c0,8.836-7.164,16-16,16 c-8.836,0-16-7.164-16-16v-34.938c-18.602-6.613-32-24.195-32-45.063c0-26.512,21.488-48,48-48s48,21.488,48,48 C256,372.867,242.602,390.449,224,397.063z" />
+                    <g> </g>
+                </svg>
+            </button>
+
+        </div>
+
+        <button id="btn-home" class="btn-view">
+            <svg version="1.1" fill="#eeeeee" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 63.699 63.699" style="enable-background:new 0 0 63.699 63.699;" xml:space="preserve">
+                <g>
+                    <path d="M63.663,29.424c-0.143-1.093-0.701-2.065-1.575-2.737l-11.715-9.021V8.608c0-2.275-1.851-4.126-4.125-4.126
+		c-2.273,0-4.125,1.851-4.125,4.126v2.705l-7.758-5.975c-0.718-0.551-1.612-0.856-2.517-0.856c-0.906,0-1.801,0.304-2.519,0.857
+		L1.606,26.687c-1.802,1.389-2.139,3.983-0.751,5.785c0.788,1.022,1.979,1.608,3.271,1.608c0.664,0,1.302-0.153,1.88-0.451V55.09
+		c0,2.275,1.851,4.127,4.126,4.127h18.534V39.732h6.351v19.482h18.271c2.274,0,4.125-1.85,4.125-4.127V33.472
+		c0.649,0.399,1.387,0.608,2.157,0.608c1.289,0,2.482-0.586,3.27-1.606C63.514,31.601,63.807,30.518,63.663,29.424z M59.819,30.144
+		c-0.08,0.105-0.189,0.122-0.247,0.122c-0.069,0-0.132-0.021-0.188-0.065L53.6,25.748V55.09c0,0.173-0.14,0.312-0.311,0.312H38.832
+		l0.001-19.484H24.852v19.484H10.132c-0.171,0-0.31-0.141-0.31-0.312V25.96L4.315,30.2c-0.056,0.043-0.119,0.065-0.188,0.065
+		c-0.059,0-0.167-0.017-0.248-0.121c-0.065-0.084-0.07-0.171-0.062-0.229c0.007-0.058,0.034-0.141,0.118-0.205L31.661,8.363
+		c0.138-0.105,0.239-0.106,0.379,0l13.899,10.703V8.608c0-0.172,0.14-0.311,0.311-0.311s0.312,0.139,0.312,0.311v10.935
+		l13.205,10.166c0.084,0.064,0.108,0.147,0.116,0.205C59.891,29.975,59.885,30.062,59.819,30.144z" />
+                </g>
+            </svg>
+        </button>
+        
+        <div id="info">
+            <p style="text-align: center;">
+                This program is developed by V2 Teaching Aid.<br/>
+                <b>© 2021 V2 Teaching Aid</b>
+            </p>
+        </div>
+
+        <button id="btn-info">
+            <svg fill="#888888" enable-background="new 0 0 524.235 524.235" width="20" height="20" viewBox="0 0 524.235 524.235" width="512"xmlns="http://www.w3.org/2000/svg"><path d="m262.118 0c-144.53 0-262.118 117.588-262.118 262.118s117.588 262.118 262.118 262.118 262.118-117.588 262.118-262.118-117.589-262.118-262.118-262.118zm17.05 417.639c-12.453 2.076-37.232 7.261-49.815 8.303-10.651.882-20.702-5.215-26.829-13.967-6.143-8.751-7.615-19.95-3.968-29.997l49.547-136.242h-51.515c-.044-28.389 21.25-49.263 48.485-57.274 12.997-3.824 37.212-9.057 49.809-8.255 7.547.48 20.702 5.215 26.829 13.967 6.143 8.751 7.615 19.95 3.968 29.997l-49.547 136.242h51.499c.01 28.356-20.49 52.564-48.463 57.226zm15.714-253.815c-18.096 0-32.765-14.671-32.765-32.765 0-18.096 14.669-32.765 32.765-32.765s32.765 14.669 32.765 32.765c0 18.095-14.668 32.765-32.765 32.765z"/></svg>        </button>
+
+    </div>
+
+   
+    <script src="ui.js"></script>
+    <script src="app_bundle_3d.js"></script>
+</body>
+
+</html>
